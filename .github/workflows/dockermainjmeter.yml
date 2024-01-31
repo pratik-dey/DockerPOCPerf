@@ -1,7 +1,7 @@
 Jmeterrun:
       stage: testjmeter
       variables:
-           PROJECT_DIR: /builds/projectpath
+          PROJECT_DIR: /builds/projectpath
           JMETER_PROJECT_DIR: $PROJECT_DIR/docker-jmeter
       image:
            name: justb4/jmeter:latest
@@ -13,7 +13,7 @@ Jmeterrun:
          - /entrypoint.sh -n -t ./testcalls.jmx −1 $JMETER_PROJECT_DIR/tests/report/testresults.log -e -o $JMETER_PROJECT_DIR/tests/report/jmeterreports
          - cd $JMETER_PROJECT_DIR/tests/report
          - zip -r $PROJECT_DIR/jmeter-qa-results.zip . 
-     artifacts:
-        paths:
-          - $PROJECT_DIR/jmeter-qa-results.zip
-        when: on success
+      artifacts:
+          paths:
+         - $PROJECT_DIR/jmeter-qa-results.zip
+          when: on success
