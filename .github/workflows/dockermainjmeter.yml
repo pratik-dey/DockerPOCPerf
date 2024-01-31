@@ -14,5 +14,6 @@ Jmeterrun:
          - cd $JMETER_PROJECT_DIR/tests/report
          - zip -r $PROJECT_DIR/jmeter-qa-results.zip . 
      artifacts:
-        paths:$PROJECT_DIR/jmeter-qa-results.zip
+        paths:
+          - $PROJECT_DIR/jmeter-qa-results.zip
         when: on success
